@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SocialWall</string>
+
+    <string name="tab_home">Home</string>
+    <string name="tab_user">Profile</string>
+    <string name="tab_news">News</string>
+    <string name="Sign_up">Sign Up</string>
+    <string name="goto_login"><u>Already have an account? Login Here</u></string>
+    <string name="Log_in">Log in</string>
+    <string name="Log_out">Log Out</string>
+    <string name="Send_Message">Send</string>
+
+</resources>

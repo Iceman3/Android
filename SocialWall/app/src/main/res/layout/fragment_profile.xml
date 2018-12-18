@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".Fragment.ProfileFragment">
+
+
+    <Button
+
+            android:id="@+id/signupButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="300dp"
+            android:layout_marginLeft="150dp"
+            android:backgroundTint="#2962ff"
+            android:text="Sign Up"/>
+
+
+    <LinearLayout
+            android:id="@+id/userFields"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+        <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/userImage"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:src="@drawable/ic_person"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FF000000"/>
+            <!--<ImageView
+                    android:id="@+id/userImage"
+                    android:layout_width="100dp"
+                       android:layout_height="100dp"
+                    android:src="@drawable/ic_person"/>-->
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                />
+            <TextView
+                    android:id="@+id/userEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin"
+            />
+
+        <Button android:id="@+id/LogOut"
+                android:layout_marginTop="@dimen/logOutMargin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#1a237e"
+                android:text="@string/Log_out"/>
+        <!-- Show progress -->
+        <ProgressBar android:id="@+id/progressBar_LogOut"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:indeterminate="true"
+                     android:visibility="invisible"
+                     android:layout_marginTop="@dimen/margin"
+        />
+
+
+    </LinearLayout>
+
+</FrameLayout>
