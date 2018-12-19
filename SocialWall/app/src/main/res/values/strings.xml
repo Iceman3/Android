@@ -9,5 +9,6 @@
     <string name="Log_in">Log in</string>
     <string name="Log_out">Log Out</string>
     <string name="Send_Message">Send</string>
+    <string name="guess">Guess</string>
 
 </resources>

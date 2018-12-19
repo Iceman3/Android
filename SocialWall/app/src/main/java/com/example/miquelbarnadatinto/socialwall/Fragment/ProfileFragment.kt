@@ -17,6 +17,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.miquelbarnadatinto.socialwall.COLLECTION_USERS
 import com.example.miquelbarnadatinto.socialwall.R
+import com.example.miquelbarnadatinto.socialwall.activity.LoginActivity
 import com.example.miquelbarnadatinto.socialwall.activity.MainActivity
 import com.example.miquelbarnadatinto.socialwall.activity.SignUpActivity
 import com.example.miquelbarnadatinto.socialwall.model.UserProfile
@@ -48,9 +49,12 @@ class ProfileFragment : Fragment() {
 
         FirebaseAuth.getInstance().currentUser?.let{
             //We have user
-
             userFields.visibility = View.VISIBLE
             signupButton.visibility = View.GONE
+            userLogButton.visibility = View.GONE
+            LogOut.visibility = View.VISIBLE
+            guess.visibility = View.GONE
+
             //Fill user data
             val db = FirebaseFirestore.getInstance()
 
@@ -59,9 +63,12 @@ class ProfileFragment : Fragment() {
                     .addOnSuccessListener { documentSnapshot ->
                         val userProfile = documentSnapshot.toObject(UserProfile::class.java)
                         userProfile?.let{userProfile->
-                            username.text = userProfile.username
-                            userEmail.text = userProfile.email
-                            Glide.with(this).load(userProfile.avatarUrl).into(userImage)
+                            username.text = "Username: " + userProfile.username
+                            userEmail.text = "Email: " + userProfile.email
+
+                            if(userProfile.avatarUrl != null) {
+                                Glide.with(this).load(userProfile.avatarUrl).into(userImage)
+                            }
 
 
                             //Image change
@@ -84,8 +91,10 @@ class ProfileFragment : Fragment() {
 
         }?: kotlin.run{
             // No user
-            userFields.visibility = View.GONE
             signupButton.visibility = View.VISIBLE
+            LogOut.visibility = View.GONE
+            guess.visibility = View.VISIBLE
+
             signupButton.setOnClickListener {
                 if (FirebaseAuth.getInstance().currentUser == null){
                     val signupIntent = Intent(activity, SignUpActivity::class.java)
@@ -94,8 +103,13 @@ class ProfileFragment : Fragment() {
                 }
             }
 
-
-
+            userLogButton.setOnClickListener{
+                if (FirebaseAuth.getInstance().currentUser == null){
+                    val signupIntent = Intent(activity, LoginActivity::class.java)
+                    startActivity(signupIntent)
+                    return@setOnClickListener
+                }
+            }
 
         }
     }

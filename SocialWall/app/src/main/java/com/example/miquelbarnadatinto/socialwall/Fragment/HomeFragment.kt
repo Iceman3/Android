@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.example.miquelbarnadatinto.socialwall.*
 import com.example.miquelbarnadatinto.socialwall.activity.SignUpActivity
 import com.example.miquelbarnadatinto.socialwall.model.MessageModel
@@ -16,6 +17,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.row_message.*
 import java.util.*
 
 
@@ -51,6 +54,12 @@ class HomeFragment : Fragment() {
             db.collection(COLLECTION_USERS).document(authUser.uid).get()
                 .addOnSuccessListener { documentSnapshot ->
                     val userProfile = documentSnapshot.toObject(UserProfile::class.java)
+                    username.text = "Username: " + userProfile.username
+                    userEmail.text = "Email: " + userProfile.email
+
+                    if(userProfile.avatarUrl != null) {
+                        Glide.with(this).load(userProfile.avatarUrl).into(userImage)
+                    }
 
                     //Get User Text
                     var userText = userInput.text.toString()
@@ -59,8 +68,7 @@ class HomeFragment : Fragment() {
                         username = userProfile?.username,
                         createdAt = Date(),
                         userId = authUser.uid,
-                        avatarUrl= userProfile?.avatarUrl
-
+                        avatarUrl = userProfile?.avatarUrl
                     )
 
                     db.collection(COLLECTION_MESSAGES).add(userMessage)
