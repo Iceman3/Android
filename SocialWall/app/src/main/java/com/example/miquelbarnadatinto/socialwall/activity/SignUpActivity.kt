@@ -49,11 +49,12 @@ class SignUpActivity : AppCompatActivity() {
                                     .addOnCompleteListener{task ->
                                         if (task.isSuccessful){
                                             //ALL OK
+                                            Toast.makeText(this, "Usuario Creado", Toast.LENGTH_LONG).show()
                                             finish()
                                         }else{
                                             //Ooops
                                             submitButton.isEnabled = true
-                                            Toast.makeText(this, "Could not create user. Try again later",Toast.LENGTH_SHORT).show()
+                                            Toast.makeText(this, "No se ha podido crear el usuario, Intentalo de nuevo",Toast.LENGTH_SHORT).show()
                                             progressBar.visibility = View.INVISIBLE
                                         }
                                     }
@@ -63,7 +64,7 @@ class SignUpActivity : AppCompatActivity() {
                             // If sign in fails, display a message to the user.
                             Log.w("SignUpActivity", "createUserWithEmail:failure", task.exception)
                             Toast.makeText(
-                                this@SignUpActivity, "Authentication failed.",
+                                this@SignUpActivity, "Ha fallado la Autentificación",
                                 Toast.LENGTH_SHORT
                             ).show()
                             submitButton.isEnabled = true

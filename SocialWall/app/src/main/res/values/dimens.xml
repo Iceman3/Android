@@ -3,5 +3,10 @@
 
     <dimen name="margin">16dp</dimen>
     <dimen name="logOutMargin">26dp</dimen>
+    <dimen name="marginTop">20dp</dimen>
+    <dimen name="sphereBorder">2dp</dimen>
+    <dimen name="layoutSphere">70dp</dimen>
+    <dimen name="fragmentProfile">96dp</dimen>
+    <dimen name="fragmentLayout">48dp</dimen>
 
 </resources>

@@ -15,21 +15,21 @@
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:textStyle="bold"
-              android:text="Username:"/>
+              android:text="@string/Username"/>
 
     <EditText android:id="@+id/usernameInput"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:maxLines="1"
               android:gravity="center"
-              android:hint="Choose your app username..."/>
+              android:hint="@string/Add_Username"/>
 
     <!--email-->
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginTop="@dimen/margin"
               android:textStyle="bold"
-              android:text="Email:"/>
+              android:text="@string/Email"/>
 
     <EditText android:id="@+id/emailInput"
               android:layout_width="match_parent"
@@ -37,14 +37,14 @@
               android:maxLines="1"
               android:inputType="textEmailAddress"
               android:gravity="center"
-              android:hint="Add your email..."/>
+              android:hint="@string/Add_Email"/>
 
     <!--password-->
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginTop="@dimen/margin"
               android:textStyle="bold"
-              android:text="Password:"/>
+              android:text="@string/Password"/>
 
     <EditText android:id="@+id/passordInput"
               android:layout_width="match_parent"
@@ -52,7 +52,7 @@
               android:maxLines="1"
               android:inputType="textPassword"
               android:gravity="center"
-              android:hint="Choose your password..."/>
+              android:hint="@string/Add_Password"/>
 
     <!--Submit-->
     <Button android:id="@+id/submitButton"

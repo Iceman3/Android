@@ -5,10 +5,21 @@
              android:layout_height="match_parent"
              tools:context=".Fragment.NewsFragment">
 
+    <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/pullNewsRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/NewsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
     <!-- TODO: Update blank fragment layout -->
     <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Nothing New"/>
+            android:layout_height="match_parent"/>
 
 </FrameLayout>

@@ -1,4 +1,4 @@
-package com.example.miquelbarnadatinto.socialwall
+package com.example.miquelbarnadatinto.socialwall.Adapters
 
 
 import android.support.v7.widget.RecyclerView
@@ -8,33 +8,37 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.example.miquelbarnadatinto.socialwall.OnItemClickListener
+import com.example.miquelbarnadatinto.socialwall.R
 import com.example.miquelbarnadatinto.socialwall.model.MessageModel
+import com.example.miquelbarnadatinto.socialwall.model.NewsModel
 import kotlinx.android.synthetic.main.row_message.view.*
+import kotlinx.android.synthetic.main.row_news.view.*
 
-/**
- * Created by alex on 06/11/2018.
- */
 
-class MessagesAdapter(var list: ArrayList<MessageModel>) : RecyclerView.Adapter<MessagesAdapter.MessageViewHolder>() {
+class NewsAdapter(var list: ArrayList<NewsModel>) : RecyclerView.Adapter<NewsAdapter.MessageViewHolder>() {
 
-    var onItemClickListener: OnItemClickListener<MessageModel>? = null
+    var onItemClickListener: OnItemClickListener<NewsModel>? = null
 
     override fun getItemCount(): Int {
         return list.count()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.row_message, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.row_news, parent, false)
         return MessageViewHolder(view)
     }
 
     override fun onBindViewHolder(viewHolder: MessageViewHolder, position: Int) {
         val message = list[position]
-        viewHolder.text.text = message.text
+        viewHolder.user.text = message.description
+        viewHolder.text.text = message.title
+
         Glide
             .with(viewHolder.userAvatar)
-            .load(message.avatarUrl)
+            .load(message.imageUrl)
             .into(viewHolder.userAvatar)
+
         //viewHolder.userAvatar.setImageURI = message.avatarUrl
 
         // SoundButton sound
@@ -46,8 +50,10 @@ class MessagesAdapter(var list: ArrayList<MessageModel>) : RecyclerView.Adapter<
 
 
     class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var text: TextView = itemView.messageText
-        var userAvatar: ImageView = itemView.userAvatar
+
+        var user: TextView = itemView.descriptionNews
+        var text: TextView = itemView.titleNews
+        var userAvatar: ImageView = itemView.newsImage
     }
 
 }

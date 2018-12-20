@@ -16,11 +16,11 @@
         <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/userImage"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
+                android:layout_width="@dimen/fragmentProfile"
+                android:layout_height="@dimen/fragmentProfile"
                 android:src="@drawable/ic_person"
                 app:civ_border_width="2dp"
-                app:civ_border_color="#FF000000"/>
+                app:civ_border_color="@color/colorPrimaryDark"/>
 
         <!--<ImageView
                 android:id="@+id/userImage"
@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:backgroundTint="#2962ff"
+                android:backgroundTint="@color/DarkBlue"
                 android:text="@string/Log_in"/>
 
         <Button
@@ -60,14 +60,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:backgroundTint="#2962ff"
-                android:text="Sign Up"/>
+                android:backgroundTint="@color/DarkBlue"
+                android:text="@string/Sign_up"/>
 
         <Button android:id="@+id/LogOut"
                 android:layout_marginTop="@dimen/logOutMargin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#2962ff"
+                android:backgroundTint="@color/DarkBlue"
                 android:text="@string/Log_out"/>
 
         <!-- Show progress -->

@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
+import android.widget.Toast
 import com.example.miquelbarnadatinto.socialwall.Fragment.HomeFragment
 import com.example.miquelbarnadatinto.socialwall.Fragment.NewsFragment
 import com.example.miquelbarnadatinto.socialwall.Fragment.ProfileFragment
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
                     fragment = ProfileFragment()
                 }
                 else ->{
+                    Toast.makeText(this, "Oh!, no deberia llegar aquí nunca. ERROR 404", Toast.LENGTH_LONG).show()
                     Log.w("MainActivity","Oh!, no deberia llegar aquí nunca. ERROR 404")
                     fragment = HomeFragment()
                 }

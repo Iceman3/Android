@@ -16,7 +16,7 @@
               android:layout_height="wrap_content"
               android:layout_marginTop="@dimen/margin"
               android:textStyle="bold"
-              android:text="Email:"/>
+              android:text="@string/Email"/>
 
     <EditText android:id="@+id/emailInput"
               android:layout_width="match_parent"
@@ -24,13 +24,13 @@
               android:maxLines="1"
               android:inputType="textEmailAddress"
               android:gravity="center"
-              android:hint="Add your email..."/>
+              android:hint="@string/Add_Email"/>
     <!--password-->
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginTop="@dimen/margin"
               android:textStyle="bold"
-              android:text="Password:"/>
+              android:text="@string/Password"/>
 
     <EditText android:id="@+id/passordInput"
               android:layout_width="match_parent"
@@ -38,14 +38,14 @@
               android:maxLines="1"
               android:inputType="textPassword"
               android:gravity="center"
-              android:hint="Choose your password..."/>
+              android:hint="@string/Put_Password"/>
 
     <!--Submit-->
     <Button android:id="@+id/Login_user"
             android:layout_marginTop="@dimen/margin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#2962ff"
+            android:backgroundTint="@color/DarkBlue"
             android:text="@string/Log_in"/>
     <!-- Show progress -->
     <ProgressBar android:id="@+id/progressBar_Login"

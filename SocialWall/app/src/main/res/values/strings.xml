@@ -1,14 +1,21 @@
 <resources>
     <string name="app_name">SocialWall</string>
 
-    <string name="tab_home">Home</string>
-    <string name="tab_user">Profile</string>
-    <string name="tab_news">News</string>
-    <string name="Sign_up">Sign Up</string>
-    <string name="goto_login"><u>Already have an account? Login Here</u></string>
-    <string name="Log_in">Log in</string>
-    <string name="Log_out">Log Out</string>
-    <string name="Send_Message">Send</string>
-    <string name="guess">Guess</string>
+    <string name="tab_home">Menú</string>
+    <string name="tab_user">Cuenta</string>
+    <string name="tab_news">Noticias</string>
+    <string name="Sign_up">Registrarse</string>
+    <string name="goto_login"><u>Ya tienes una cuenta? Haz Login</u></string>
+    <string name="Log_in">Iniciar Sesión</string>
+    <string name="Log_out">Desconectarse</string>
+    <string name="Send_Message">Enviar</string>
+    <string name="guess">Invitado</string>
+    <string name="Email">Email: </string>
+    <string name="Add_Email">Escribe un email... </string>
+    <string name="Password">Password: </string>
+    <string name="Add_Password">Escribe un password...</string>
+    <string name="Put_Password">Escribe tu password...</string>
+    <string name="Username">Username: </string>
+    <string name="Add_Username">Escoge tu usuario...</string>
 
 </resources>
