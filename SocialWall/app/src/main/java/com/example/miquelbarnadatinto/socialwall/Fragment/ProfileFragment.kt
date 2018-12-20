@@ -2,12 +2,14 @@ package com.example.miquelbarnadatinto.socialwall.Fragment
 
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.provider.SyncStateContract
 import android.support.v4.app.Fragment
 import android.support.v4.content.FileProvider
 import android.util.Log
@@ -18,6 +20,7 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.miquelbarnadatinto.socialwall.COLLECTION_USERS
 import com.example.miquelbarnadatinto.socialwall.R
+import com.example.miquelbarnadatinto.socialwall.USER_PREFS
 import com.example.miquelbarnadatinto.socialwall.activity.LoginActivity
 import com.example.miquelbarnadatinto.socialwall.activity.MainActivity
 import com.example.miquelbarnadatinto.socialwall.activity.SignUpActivity
@@ -80,9 +83,12 @@ class ProfileFragment : Fragment() {
                         }
 
                         LogOut.setOnClickListener {
+                            val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)!!.edit().clear().apply()
+
                             FirebaseAuth.getInstance().signOut()
                             val signupIntent = Intent(activity, MainActivity::class.java)
                             startActivity(signupIntent)
+
                             return@setOnClickListener
                         }
                     }

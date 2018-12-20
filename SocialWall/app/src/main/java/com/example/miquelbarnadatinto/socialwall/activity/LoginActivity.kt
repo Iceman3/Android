@@ -1,5 +1,6 @@
 package com.example.miquelbarnadatinto.socialwall.activity
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -8,13 +9,14 @@ import android.widget.Toast
 import android.util.Log
 import android.view.View
 import android.widget.EditText
-import com.example.miquelbarnadatinto.socialwall.COLLECTION_USERS
-import com.example.miquelbarnadatinto.socialwall.R
+import com.example.miquelbarnadatinto.socialwall.*
+import com.example.miquelbarnadatinto.socialwall.R.id.username
 import com.example.miquelbarnadatinto.socialwall.model.UserProfile
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -44,6 +46,13 @@ class LoginActivity : AppCompatActivity() {
                         if (task.isSuccessful) {
                             startActivity(Intent(this, MainActivity::class.java))
                             Toast.makeText(this, "Log in Correcto, Bienvenido", Toast.LENGTH_LONG).show()
+
+                            val editor = getSharedPreferences(USER_PREFS, Context.MODE_PRIVATE).edit()
+                            editor.putString(PREF_USERID, mAuth.uid)
+                            val username = mAuth.currentUser!!.toString()
+                            editor.putString(PREF_USERNAME, username)
+                            editor.apply()
+
                         } else {
                             Toast.makeText(this, "Email o Password Incorrecto", Toast.LENGTH_LONG).show()
                             Login_user.isEnabled = true;

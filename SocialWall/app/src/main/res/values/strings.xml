@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">SocialWall</string>
-
     <string name="tab_home">Menú</string>
     <string name="tab_user">Cuenta</string>
     <string name="tab_news">Noticias</string>
@@ -17,5 +16,7 @@
     <string name="Put_Password">Escribe tu password...</string>
     <string name="Username">Username: </string>
     <string name="Add_Username">Escoge tu usuario...</string>
-
+    <string name="ad_attribution">Ad</string>
+    <string name="admob_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
 </resources>

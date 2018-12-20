@@ -1,6 +1,7 @@
 package com.example.miquelbarnadatinto.socialwall.Fragment
 
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -53,13 +54,17 @@ class HomeFragment : Fragment() {
                 .addOnSuccessListener { documentSnapshot ->
                     val userProfile = documentSnapshot.toObject(UserProfile::class.java)
 
+                    val userPreferences = context?.getSharedPreferences(USER_PREFS, Context.MODE_PRIVATE)
+                    val userId = userPreferences?.getString(PREF_USERID, "")
+                    val username = userPreferences?.getString(PREF_USERNAME, "")
+
                     //Get User Text
                     var userText = userInput.text.toString()
                     val userMessage = MessageModel(
                         text = userText,
-                        username = userProfile?.username,
+                        username = username,
                         createdAt = Date(),
-                        userId = authUser.uid,
+                        userId = userId,
                         avatarUrl = userProfile?.avatarUrl
                     )
 
