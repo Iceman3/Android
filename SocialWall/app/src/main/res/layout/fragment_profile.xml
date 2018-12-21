@@ -20,6 +20,7 @@
                 android:layout_height="@dimen/fragmentProfile"
                 android:src="@drawable/ic_person"
                 app:civ_border_width="2dp"
+                
                 app:civ_border_color="@color/colorPrimaryDark"/>
 
         <!--<ImageView

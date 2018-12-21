@@ -32,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
         val emailTxt = findViewById<View>(R.id.emailInput) as EditText
         val passwordTxt = findViewById<View>(R.id.passordInput) as EditText
 
+            val db = FirebaseFirestore.getInstance()
             var email = emailTxt.text.toString()
             var password = passwordTxt.text.toString()
 
@@ -46,12 +47,19 @@ class LoginActivity : AppCompatActivity() {
                         if (task.isSuccessful) {
                             startActivity(Intent(this, MainActivity::class.java))
                             Toast.makeText(this, "Log in Correcto, Bienvenido", Toast.LENGTH_LONG).show()
+                            val authUser = FirebaseAuth.getInstance().currentUser!!
+                            db.collection(COLLECTION_USERS).document(authUser.uid).get()
+                                .addOnSuccessListener { documentSnapshot ->
+                                    val userProfile = documentSnapshot.toObject(UserProfile::class.java)
 
-                            val editor = getSharedPreferences(USER_PREFS, Context.MODE_PRIVATE).edit()
-                            editor.putString(PREF_USERID, mAuth.uid)
-                            val username = mAuth.currentUser!!.toString()
-                            editor.putString(PREF_USERNAME, username)
-                            editor.apply()
+                                    val editor = getSharedPreferences(USER_PREFS, Context.MODE_PRIVATE).edit()
+                                    editor.putString(PREF_USERID, mAuth.uid)
+                                    val username = userProfile?.username
+                                    editor.putString(PREF_USERNAME, username)
+                                    val urlImage = userProfile?.avatarUrl
+                                    editor.putString(PREF_AVIMAGE, urlImage)
+                                    editor.apply()
+                                }
 
                         } else {
                             Toast.makeText(this, "Email o Password Incorrecto", Toast.LENGTH_LONG).show()

@@ -9,11 +9,14 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.miquelbarnadatinto.socialwall.*
 import com.example.miquelbarnadatinto.socialwall.Adapters.MessagesAdapter
+import com.example.miquelbarnadatinto.socialwall.activity.MainActivity
 import com.example.miquelbarnadatinto.socialwall.activity.SignUpActivity
 import com.example.miquelbarnadatinto.socialwall.model.MessageModel
 import com.example.miquelbarnadatinto.socialwall.model.UserProfile
+import com.google.android.gms.ads.AdRequest
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -50,22 +53,36 @@ class HomeFragment : Fragment() {
 
             //Get user
             val authUser = FirebaseAuth.getInstance().currentUser!!
-            db.collection(COLLECTION_USERS).document(authUser.uid).get()
-                .addOnSuccessListener { documentSnapshot ->
-                    val userProfile = documentSnapshot.toObject(UserProfile::class.java)
+
 
                     val userPreferences = context?.getSharedPreferences(USER_PREFS, Context.MODE_PRIVATE)
                     val userId = userPreferences?.getString(PREF_USERID, "")
                     val username = userPreferences?.getString(PREF_USERNAME, "")
+                    val userImage = userPreferences?.getString(PREF_AVIMAGE,"")
 
-                    //Get User Text
-                    var userText = userInput.text.toString()
+
+            //Get User Text
+            var userText = userInput.text.toString()
+                    if(userId == null || userImage == null || username == null) {
+                        db.collection(COLLECTION_USERS).document(authUser.uid).get()
+                            .addOnSuccessListener { documentSnapshot ->
+                                val userProfile = documentSnapshot.toObject(UserProfile::class.java)
+                                val userMessage = MessageModel(
+                                    text = userText,
+                                    username = userProfile?.username,
+                                    createdAt = Date(),
+                                    userId = userProfile?.userId,
+                                    avatarUrl = userProfile?.avatarUrl
+                                )
+
+                            }
+                    }
                     val userMessage = MessageModel(
                         text = userText,
                         username = username,
                         createdAt = Date(),
                         userId = userId,
-                        avatarUrl = userProfile?.avatarUrl
+                        avatarUrl = userImage
                     )
 
                     db.collection(COLLECTION_MESSAGES).add(userMessage)
@@ -76,8 +93,9 @@ class HomeFragment : Fragment() {
                             //TODO: Oh shit
                         }
                 }
+
         }
-    }
+
 
     private fun refreshData(){
         pullToRefresh.isRefreshing = true;
@@ -92,6 +110,7 @@ class HomeFragment : Fragment() {
                     val message = documentSnapshot.toObject(MessageModel::class.java)
                     list.add(message)
                 }
+
                 activity?.let {
                     recyclerView.adapter = MessagesAdapter(list)
                     recyclerView.layoutManager = LinearLayoutManager(activity)

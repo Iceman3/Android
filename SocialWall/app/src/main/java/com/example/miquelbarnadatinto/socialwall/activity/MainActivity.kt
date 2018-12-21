@@ -151,7 +151,7 @@ class MainActivity : AppCompatActivity() {
         val vc = nativeAd.videoController
 
         // Updates the UI to say whether or not this ad has a video asset.
-        if (vc.hasVideoContent()) {
+       /* if (vc.hasVideoContent()) {
             videostatus_text.text = String.format(
                 Locale.getDefault(),
                 "Video status: Ad contains a %.2f:1 video asset.",
@@ -172,7 +172,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             videostatus_text.text = "Video status: Ad does not contain a video asset."
             //refresh_button.isEnabled = true
-        }
+        }*/
     }
 
     /**
@@ -180,7 +180,7 @@ class MainActivity : AppCompatActivity() {
      * corresponding "populate" method when one is successfully returned.
      *
      */
-    private fun refreshAd() {
+    public fun refreshAd() {
         //refresh_button.isEnabled = false
 
         val builder = AdLoader.Builder(this, getString(R.string.admob_ad_unit_id))
@@ -195,7 +195,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         val videoOptions = VideoOptions.Builder()
-            .setStartMuted(start_muted_checkbox.isChecked)
+            .setStartMuted(false)
             .build()
 
         val adOptions = NativeAdOptions.Builder()
@@ -213,6 +213,6 @@ class MainActivity : AppCompatActivity() {
 
         adLoader.loadAd(AdRequest.Builder().build())
 
-        videostatus_text.text = ""
+        //videostatus_text.text = ""
     }
 }

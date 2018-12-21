@@ -83,8 +83,9 @@ class ProfileFragment : Fragment() {
                         }
 
                         LogOut.setOnClickListener {
-                            val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)!!.edit().clear().apply()
 
+                            val userPreferences = context?.getSharedPreferences(USER_PREFS, Context.MODE_PRIVATE)
+                            userPreferences?.edit()?.clear()?.apply()
                             FirebaseAuth.getInstance().signOut()
                             val signupIntent = Intent(activity, MainActivity::class.java)
                             startActivity(signupIntent)
