@@ -3,4 +3,5 @@
     <item android:title="@string/tab_home" android:icon="@drawable/ic_home" android:id="@+id/tab_home"/>
     <item android:title="@string/tab_news" android:icon="@drawable/ic_new" android:id="@+id/tab_news"/>
     <item android:title="@string/tab_user" android:icon="@drawable/ic_person" android:id="@+id/tab_profile"/>
+    <item android:title="@string/tab_twitch" android:icon="@drawable/ic_twitch" android:id="@+id/tab_twitch"/>
 </menu>

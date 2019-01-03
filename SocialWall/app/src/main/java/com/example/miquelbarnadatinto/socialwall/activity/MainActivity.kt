@@ -9,6 +9,7 @@ import android.widget.*
 import com.example.miquelbarnadatinto.socialwall.Fragment.HomeFragment
 import com.example.miquelbarnadatinto.socialwall.Fragment.NewsFragment
 import com.example.miquelbarnadatinto.socialwall.Fragment.ProfileFragment
+import com.example.miquelbarnadatinto.socialwall.Fragment.TwitchFragment
 import com.google.android.gms.ads.*
 import com.example.miquelbarnadatinto.socialwall.R
 import kotlinx.android.synthetic.main.activity_main.*
@@ -45,6 +46,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.tab_profile ->{
                     fragment = ProfileFragment()
+                }
+                R.id.tab_twitch->{
+                    fragment = TwitchFragment()
                 }
                 else ->{
                     Toast.makeText(this, "Oh!, no deberia llegar aquí nunca. ERROR 404", Toast.LENGTH_LONG).show()

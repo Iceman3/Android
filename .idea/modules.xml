@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SocialWall.iml" filepath="$PROJECT_DIR$/.idea/modules/SocialWall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SocialWall/app/build.gradle/build.gradle.iml" filepath="$PROJECT_DIR$/.idea/modules/SocialWall/app/build.gradle/build.gradle.iml" />
+    </modules>
+  </component>
+</project>
