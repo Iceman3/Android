@@ -40,7 +40,7 @@ class TwitchActivity : AppCompatActivity() {
 
                 }
                 R.id.tab_streamUser -> {
-                    fragment = TwitchFragment()
+                    fragment = TwitchUserFragment()
 
                 }
                 else -> {

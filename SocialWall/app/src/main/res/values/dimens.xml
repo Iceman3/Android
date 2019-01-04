@@ -8,6 +8,7 @@
     <dimen name="layoutSphere">70dp</dimen>
     <dimen name="fragmentProfile">96dp</dimen>
     <dimen name="fragmentLayout">48dp</dimen>
+    <dimen name="twitchImage">150dp</dimen>
     <dimen name="adHeight">78dp</dimen>
     <dimen name="adMargin">70dp</dimen>
 </resources>

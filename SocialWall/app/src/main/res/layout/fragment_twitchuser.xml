@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".Fragment.ProfileFragment">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="@dimen/fragmentLayout"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal"
+            android:layout_marginTop="@dimen/margin">
+
+        <EditText android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:id="@+id/userSearchInput"
+                  android:layout_toStartOf="@id/sendButton"
+                  android:layout_alignParentBottom="true"
+                  android:hint="Escribe el nombre del streamer..."
+                  android:background="@color/White"/>
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sendSeachButton"
+                android:text="@string/Send_Message"
+                android:backgroundTint="@color/DarkBlue"
+                android:background="@color/colorPrimary"
+                android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+            android:id="@+id/userTwitchFields"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/userTwitchImage"
+                android:layout_width="@dimen/twitchImage"
+                android:layout_height="@dimen/twitchImage"
+                android:src="@drawable/ic_person"
+                app:civ_border_width="2dp"
+                android:layout_marginTop="@dimen/fragmentProfile"
+                app:civ_border_color="@color/colorPrimaryDark"/>
+
+        <!--<ImageView
+                android:id="@+id/userImage"
+                android:layout_width="100dp"
+                   android:layout_height="100dp"
+                android:src="@drawable/ic_person"/>-->
+
+
+<RelativeLayout android:layout_width="wrap_content"
+                android:layout_height="@dimen/fragmentLayout"
+                android:layout_gravity="center">
+
+    <TextView
+                android:id="@+id/nUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+             android:text="Nombre Usuario:  "/>
+
+
+
+        <TextView
+                android:id="@+id/twitchUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:layout_toEndOf="@+id/nUsuario"
+                />
+
+</RelativeLayout>
+
+
+        <RelativeLayout android:layout_width="wrap_content"
+                        android:layout_height="@dimen/fragmentLayout"
+                        android:layout_gravity="center">
+
+            <TextView
+                    android:id="@+id/nDescripcion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin"
+                    android:text="Descripción:  "/>
+        <TextView
+                android:id="@+id/twitchDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:layout_toEndOf="@+id/nDescripcion"/>
+
+        </RelativeLayout>
+
+
+
+        <!-- Show progress -->
+        <ProgressBar android:id="@+id/progressBar_LogOut"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:indeterminate="true"
+                     android:visibility="invisible"
+                     android:layout_marginTop="@dimen/margin"
+        />
+
+    </LinearLayout>
+
+</FrameLayout>
