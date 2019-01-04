@@ -15,7 +15,11 @@ data class TWStream (
 
 
 
-    )
+    ){
+    fun getImageUrl(): String? {
+        return thumbnailUrl?.replace("{width}x{height}", "500x500")
+    }
+}
 
 data class TWStreamResponse(
     var data: ArrayList<TWStream>? =null

@@ -4,6 +4,7 @@
     <string name="tab_user">Cuenta</string>
     <string name="tab_news">Noticias</string>
     <string name="tab_twitch">Twitch</string>
+    <string name="TwitchCompanion">Twitch Companion</string>
     <string name="Sign_up">Registrarse</string>
     <string name="goto_login"><u>Ya tienes una cuenta? Haz Login</u></string>
     <string name="Log_in">Iniciar Sesión</string>

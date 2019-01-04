@@ -12,26 +12,22 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
 import com.example.miquelbarnadatinto.socialwall.OnItemClickListener
 import com.example.miquelbarnadatinto.socialwall.R
-import com.example.miquelbarnadatinto.socialwall.R.id.twitchImage
-import com.example.miquelbarnadatinto.socialwall.model.NewsModel
-import com.example.miquelbarnadatinto.socialwall.model.TWStream
-import com.example.miquelbarnadatinto.socialwall.model.TWStreamResponse
-import com.example.miquelbarnadatinto.socialwall.model.TWUser
-import kotlinx.android.synthetic.main.row_news.view.*
+import com.example.miquelbarnadatinto.socialwall.model.TWGames
 import kotlinx.android.synthetic.main.row_twitch.view.*
+import kotlinx.android.synthetic.main.row_twitchgames.view.*
 import java.util.ArrayList
 
 
-class TwitchUserAdapter(var list: ArrayList<TWUser>) : RecyclerView.Adapter<TwitchUserAdapter.MessageViewHolder>() {
+class TwitchGamesAdapter(var list: ArrayList<TWGames>) : RecyclerView.Adapter<TwitchGamesAdapter.MessageViewHolder>() {
 
-    var onItemClickListener: OnItemClickListener<TWUser>? = null
+    var onItemClickListener: OnItemClickListener<TWGames>? = null
 
     override fun getItemCount(): Int {
         return list.count()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.row_twitch, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.row_twitchgames, parent, false)
 
         return MessageViewHolder(view)
     }
@@ -39,10 +35,11 @@ class TwitchUserAdapter(var list: ArrayList<TWUser>) : RecyclerView.Adapter<Twit
     override fun onBindViewHolder(viewHolder: MessageViewHolder, position: Int) {
         val message = list[position]
 
+        viewHolder.name.text = message.name
 
         Glide
             .with(viewHolder.twitchImage)
-            .load(message.profileImage)
+            .load(message.getImageUrl())
             .apply(
                 RequestOptions()
                     .transform(CenterCrop())
@@ -63,9 +60,9 @@ class TwitchUserAdapter(var list: ArrayList<TWUser>) : RecyclerView.Adapter<Twit
 
     class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
+        var name: TextView =  itemView.TwitchGameName
+        var twitchImage: ImageView = itemView.twitchGameImage
 
-        var twitchImage: ImageView = itemView.twitchImage
-        //var viewCount: TextView =  itemView.userCountTwitch
 
        // var userAvatar: ImageView = itemView.newsImage
     }

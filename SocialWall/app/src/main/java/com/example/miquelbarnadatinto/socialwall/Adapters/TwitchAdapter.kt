@@ -11,7 +11,6 @@ import com.bumptech.glide.Glide
 import com.example.miquelbarnadatinto.socialwall.OnItemClickListener
 import com.example.miquelbarnadatinto.socialwall.R
 import com.example.miquelbarnadatinto.socialwall.model.TWStream
-import com.example.miquelbarnadatinto.socialwall.model.TWUser
 import kotlinx.android.synthetic.main.row_twitch.view.*
 import java.util.ArrayList
 
@@ -36,11 +35,11 @@ class TwitchAdapter(var list: ArrayList<TWStream>) : RecyclerView.Adapter<Twitch
         viewHolder.userName.text = message.userName
         viewHolder.viewCount.text = message.viewerCount+ " viewers"
 
-       /* val message2 = list2[position]
+
         Glide
             .with(viewHolder.twitchImage)
-            .load(message2.profileImage)
-            .into(viewHolder.twitchImage)*/
+            .load(message.getImageUrl())
+            .into(viewHolder.twitchImage)
 
     //    viewHolder.userAvatar.setImageURI = message.avatarUrl
 
@@ -59,7 +58,7 @@ class TwitchAdapter(var list: ArrayList<TWStream>) : RecyclerView.Adapter<Twitch
         var title: TextView = itemView.titleTwitch
         var userName: TextView =  itemView.userTwitch
         var viewCount: TextView = itemView.userCountTwitch
-      //  var twitchImage: ImageView = itemView.twitchImage
+        var twitchImage: ImageView = itemView.twitchImage
 
         // var userAvatar: ImageView = itemView.newsImage
     }

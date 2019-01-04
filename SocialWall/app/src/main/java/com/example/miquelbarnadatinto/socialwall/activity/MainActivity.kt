@@ -1,5 +1,6 @@
 package com.example.miquelbarnadatinto.socialwall.activity
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -48,7 +49,8 @@ class MainActivity : AppCompatActivity() {
                     fragment = ProfileFragment()
                 }
                 R.id.tab_twitch->{
-                    fragment = TwitchFragment()
+                    val twitchCompanionIntent = Intent(this, TwitchActivity::class.java)
+                    startActivity(twitchCompanionIntent)
                 }
                 else ->{
                     Toast.makeText(this, "Oh!, no deberia llegar aquí nunca. ERROR 404", Toast.LENGTH_LONG).show()
