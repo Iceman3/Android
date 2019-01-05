@@ -32,6 +32,9 @@
             <TextView android:id="@+id/TwitchGameName"
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
+                      android:layout_marginLeft="@dimen/adMargin"
+                      android:layout_marginTop="@dimen/margin"
+                      android:textSize="@dimen/marginTop"
                       android:gravity="center"
                       android:textColor="@color/Red"></TextView>
         </RelativeLayout>

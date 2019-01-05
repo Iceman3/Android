@@ -21,5 +21,9 @@
     <string name="ad_attribution">Ad</string>
     <string name="admob_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
     <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="descripci_n">Descripción:</string>
+    <string name="nombre_usuario">Nombre Usuario:</string>
+    <string name="email">Email:</string>
+    <string name="StreamInfo">Busca info de Streamers, ex: Ninja</string>
 
 </resources>

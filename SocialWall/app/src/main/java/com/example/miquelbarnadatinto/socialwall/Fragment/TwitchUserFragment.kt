@@ -40,11 +40,21 @@ class TwitchUserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        twitchUserName = "Ninja"
-        getUserID(twitchUserName.toString())
+
+        userTwitchFields.visibility = View.GONE
 
 
-        getApiUserData()
+        sendSearchButton.setOnClickListener {
+            twitchUserName = userSearchInput.text.toString()
+            if(twitchUserName != null) {
+                getUserID(twitchUserName.toString())
+                getApiUserData()
+                userSearchInput.text = null
+                userTwitchFields.visibility = View.VISIBLE
+            }
+
+        }
+
 
     }
 
@@ -72,12 +82,23 @@ class TwitchUserFragment : Fragment() {
                             userName = stream.userName,
                             description = stream.description,
                             profileImg = stream.getImageUrl()
-                            //viewCount = stream.viewCount
+
 
                         )
                         list.add(twitchUser)
-                        twitchUsername.text = twitchUser.userName
-                        twitchDescription.text = twitchUser.description
+                        if(twitchUser.userName != null){
+                            twitchUsername.text = twitchUser.userName
+                        }
+                        else{
+                            twitchUsername.text = "none"
+                        }
+
+                        if(twitchUser.description != null) {
+                            twitchDescription.text = twitchUser.description
+                        }
+                        else{
+                            twitchDescription.text = "none"
+                        }
 
                         Glide
                             .with(userTwitchImage)
@@ -90,7 +111,7 @@ class TwitchUserFragment : Fragment() {
                             .into(userTwitchImage)
 
 
-                      //  Log.i("MainActivity", "Stream With title ${stream.viewCount}")
+
 
                     }
                 }

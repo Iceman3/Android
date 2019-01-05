@@ -8,20 +8,21 @@
     <RelativeLayout android:layout_width="match_parent"
                     android:layout_height="@dimen/fragmentLayout"
                     android:layout_alignParentBottom="true"
+                    android:layout_margin="@dimen/margin"
                     android:orientation="horizontal"
             android:layout_marginTop="@dimen/margin">
 
         <EditText android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:id="@+id/userSearchInput"
-                  android:layout_toStartOf="@id/sendButton"
+                  android:layout_toStartOf="@id/sendSearchButton"
                   android:layout_alignParentBottom="true"
-                  android:hint="Escribe el nombre del streamer..."
+                  android:hint="@string/StreamInfo"
                   android:background="@color/White"/>
 
         <Button android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/sendSeachButton"
+                android:id="@+id/sendSearchButton"
                 android:text="@string/Send_Message"
                 android:backgroundTint="@color/DarkBlue"
                 android:background="@color/colorPrimary"
@@ -34,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
+
             android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -55,14 +57,16 @@
 
 <RelativeLayout android:layout_width="wrap_content"
                 android:layout_height="@dimen/fragmentLayout"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                >
 
     <TextView
                 android:id="@+id/nUsuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin"
-             android:text="Nombre Usuario:  "/>
+             android:text="@string/nombre_usuario"
+    android:textStyle="bold"/>
 
 
 
@@ -86,7 +90,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin"
-                    android:text="Descripción:  "/>
+                    android:text="@string/descripci_n"
+                    android:textStyle="bold"/>
         <TextView
                 android:id="@+id/twitchDescription"
                 android:layout_width="wrap_content"
@@ -95,7 +100,6 @@
                 android:layout_toEndOf="@+id/nDescripcion"/>
 
         </RelativeLayout>
-
 
 
         <!-- Show progress -->

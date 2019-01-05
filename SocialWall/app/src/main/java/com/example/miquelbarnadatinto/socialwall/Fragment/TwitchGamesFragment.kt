@@ -64,11 +64,9 @@ class TwitchGamesFragment : Fragment() {
                         val twitchUser = TWGames(
                             name= stream.name,
                             boxArt = stream.getImageUrl()
-                            //viewCount = stream.viewCount
 
                         )
                         list.add(twitchUser)
-                      //  Log.i("MainActivity", "Stream With title ${stream.viewCount}")
 
                     }
                     activity?.let {

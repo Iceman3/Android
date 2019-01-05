@@ -68,7 +68,6 @@ class TwitchFragment : Fragment() {
                             thumbnailUrl = stream.getImageUrl()
 
                         )
-                       // Log.i("main Activity", "${stream.getImageUrl()}")
                         list.add(twitchChannel)
 
                     }

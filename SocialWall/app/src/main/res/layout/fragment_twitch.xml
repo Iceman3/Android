@@ -10,14 +10,29 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
     <android.support.v7.widget.RecyclerView
             android:id="@+id/TwitchRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/adMargin"/>
 
 
     </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/adHeight"
+            android:orientation="horizontal">
+
+        <FrameLayout
+                android:id="@+id/ad_frame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"/>
+
+        </RelativeLayout>
+
     <!-- TODO: Update blank fragment layout -->
     <TextView
             android:layout_width="match_parent"

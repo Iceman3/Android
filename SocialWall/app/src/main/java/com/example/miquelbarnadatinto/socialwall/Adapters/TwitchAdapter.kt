@@ -41,13 +41,6 @@ class TwitchAdapter(var list: ArrayList<TWStream>) : RecyclerView.Adapter<Twitch
             .load(message.getImageUrl())
             .into(viewHolder.twitchImage)
 
-    //    viewHolder.userAvatar.setImageURI = message.avatarUrl
-
-        // SoundButton sound
-        /*viewHolder.soundButton.setOnClickListener {
-            onItemClickListener?.onItemClick(list[position], position)
-        }*/
-
     }
 
 
@@ -60,7 +53,6 @@ class TwitchAdapter(var list: ArrayList<TWStream>) : RecyclerView.Adapter<Twitch
         var viewCount: TextView = itemView.userCountTwitch
         var twitchImage: ImageView = itemView.twitchImage
 
-        // var userAvatar: ImageView = itemView.newsImage
     }
 
 }

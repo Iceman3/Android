@@ -47,12 +47,7 @@ class TwitchGamesAdapter(var list: ArrayList<TWGames>) : RecyclerView.Adapter<Tw
             )
             .into(viewHolder.twitchImage)
 
-        //viewHolder.userAvatar.setImageURI = message.avatarUrl
 
-        // SoundButton sound
-        /*viewHolder.soundButton.setOnClickListener {
-            onItemClickListener?.onItemClick(list[position], position)
-        }*/
 
     }
 
@@ -64,7 +59,6 @@ class TwitchGamesAdapter(var list: ArrayList<TWGames>) : RecyclerView.Adapter<Tw
         var twitchImage: ImageView = itemView.twitchGameImage
 
 
-       // var userAvatar: ImageView = itemView.newsImage
     }
 
 }
