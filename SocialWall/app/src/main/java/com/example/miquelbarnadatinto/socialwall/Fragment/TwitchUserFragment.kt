@@ -16,7 +16,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.miquelbarnadatinto.socialwall.*
 import com.example.miquelbarnadatinto.socialwall.Adapters.TwitchGamesAdapter
 import com.example.miquelbarnadatinto.socialwall.model.*
-import com.example.sergisanchezsolares.twitchcompanion.network.getUserID
 import com.example.sergisanchezsolares.twitchcompanion.network.getUserName
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_twitch.*
@@ -47,8 +46,7 @@ class TwitchUserFragment : Fragment() {
         sendSearchButton.setOnClickListener {
             twitchUserName = userSearchInput.text.toString()
             if(twitchUserName != null) {
-                getUserID(twitchUserName.toString())
-                getApiUserData()
+                getApiUserData(twitchUserName.toString())
                 userSearchInput.text = null
                 userTwitchFields.visibility = View.VISIBLE
             }
@@ -59,8 +57,8 @@ class TwitchUserFragment : Fragment() {
     }
 
 
-   fun getApiUserData(){
-        ApiService.service.getUsers().enqueue(object : Callback<TWUserResponse> {
+   fun getApiUserData(userName: String){
+        ApiService.service.getUsers(userName).enqueue(object : Callback<TWUserResponse> {
 
             override fun onFailure(call: Call<TWUserResponse>, t: Throwable) {
 

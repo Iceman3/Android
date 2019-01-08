@@ -10,15 +10,6 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
 
-var _userID=""
-fun getUserID(value:String){
-    _userID = value
-}
-
-var _userName=""
-fun getUserName(value:String){
-    _userName = value
-}
 
 interface ApiService{
 
@@ -30,9 +21,9 @@ interface ApiService{
     @GET("games/top")
     fun getGames() : Call<TWGamesResponse>
 
-    @Headers("Client-ID: diinlavlj8b4mi37x5wfzdlsbw982x" , "Authorization: Bearer cfabdegwdoklmawdzdo98xt2fo512y")
+    @Headers("Client-ID: diinlavlj8b4mi37x5wfzdlsbw982x")
     @GET("users")
-    fun getUsers(@Query("login") userId: String= _userID): Call<TWUserResponse>
+    fun getUsers(@Query("login") userId: String): Call<TWUserResponse>
 
 
 

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SocialWall.iml" filepath="$PROJECT_DIR$/.idea/modules/SocialWall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Social_repo.iml" filepath="$PROJECT_DIR$/Social_repo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SocialWall/app/build.gradle/build.gradle.iml" filepath="$PROJECT_DIR$/.idea/modules/SocialWall/app/build.gradle/build.gradle.iml" />
     </modules>
   </component>

@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.tab_twitch->{
                     val twitchCompanionIntent = Intent(this, TwitchActivity::class.java)
                     startActivity(twitchCompanionIntent)
+                    return@setOnNavigationItemSelectedListener false
                 }
                 else ->{
                     Toast.makeText(this, "Oh!, no deberia llegar aquí nunca. ERROR 404", Toast.LENGTH_LONG).show()
